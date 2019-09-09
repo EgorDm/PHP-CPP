@@ -98,6 +98,15 @@ public:
     Object(const char *name, Value arg0, Args&&... args) : Value() { if (instantiate(name)) call("__construct", arg0, std::forward<Value>(args)...); }
 
     /**
+     * Constructor to create new instance with varible amount of args at runtime
+     * 
+     * @param name 	Name of the class to instantiate
+     * @param argc	Argument count
+     * @param argv	Pointer to an argument list
+     */
+    Object(const char *name, int argc, Value* argv) : Value() { if(instantiate(name)) call("__construct", argc, argv); }
+
+    /**
      *  Destructor
      */
     virtual ~Object() {}

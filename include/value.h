@@ -1033,6 +1033,13 @@ public:
     }
 
     /**
+     * Call a method with variable amount of arguments at runtime
+     */
+    Value call(const char *name, int argc, Value *argv) {
+	return exec(name, argc, argv);
+    }
+
+    /**
      *  Retrieve the original implementation
      *
      *  This only works for classes that were implemented using PHP-CPP,
